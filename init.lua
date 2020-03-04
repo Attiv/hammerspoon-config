@@ -12,6 +12,7 @@ require "volume.volume"
 require "weather.weather"
 require "speaker.speaker"
 require "mouse.autoClick"
+require "app.launch"
 
 
 require("autoscript.autoscript")
