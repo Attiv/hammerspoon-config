@@ -30,5 +30,5 @@ function telegram()
 end
 
 
-hs.hotkey.bind({"cmd"}, "`", telegram)
+hs.hotkey.bind({"ctrl"}, "`", telegram)
 hs.hotkey.bind({"alt"}, "`", slack)
