@@ -1,8 +1,23 @@
 local slackApp = hs.application.get('com.tinyspeck.slackmacgap')
 local telegramApp = hs.application.get('ru.keepcoder.Telegram')
+local fsNoteApp = hs.application.get('co.fluder.FSNotes')
+
+function fsNote()
+  if (not fsNoteApp or (not fsNoteApp:isRunning()))
+    then
+      hs.application.open('co.fluder.FSNotes')
+      fsNoteApp = hs.application.get('co.fluder.FSNotes')
+    end
+  if fsNoteApp:isHidden()
+    then
+      hs.application.launchOrFocus('/Applications/FSNotes.app')
+    else
+      fsNoteApp:hide()
+    end
+end
 
 function slack()
-  if not slackApp
+  if (not slackApp or (not slackApp:isRunning()))
     then
       hs.application.open('com.tinyspeck.slackmacgap')
       slackApp = hs.application.get('com.tinyspeck.slackmacgap')
@@ -16,7 +31,7 @@ function slack()
 end
 
 function telegram()
-  if not telegramApp
+  if (not telegramApp or (not telegramApp:isRunning()))
     then 
       hs.application.open('ru.keepcoder.Telegram')
       telegramApp = hs.application.get('ru.keepcoder.Telegram')
@@ -32,3 +47,4 @@ end
 
 hs.hotkey.bind({"cmd"}, "`", telegram)
 hs.hotkey.bind({"alt"}, "`", slack)
+hs.hotkey.bind({"ctrl"}, "\\", fsNote)
