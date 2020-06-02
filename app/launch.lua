@@ -1,6 +1,21 @@
 local slackApp = hs.application.get('com.tinyspeck.slackmacgap')
 local telegramApp = hs.application.get('ru.keepcoder.Telegram')
 local fsNoteApp = hs.application.get('co.fluder.FSNotes')
+local emailApp = hs.application.get('com.apple.mail')
+
+function emailOpen()
+  if (not emailApp or (not emailApp:isRunning()))
+    then
+      hs.application.open('com.apple.mail')
+      emailApp = hs.application.get('com.apple.mail')
+    end
+  if emailApp:isHidden()
+    then
+      hs.application.launchOrFocus('/System/Applications/Mail.app')
+    else
+      emailApp:hide()
+    end
+end
 
 function fsNote()
   if (not fsNoteApp or (not fsNoteApp:isRunning()))
@@ -47,4 +62,5 @@ end
 
 hs.hotkey.bind({"cmd"}, "`", telegram)
 hs.hotkey.bind({"alt"}, "`", slack)
+hs.hotkey.bind({"ctrl"}, "`", emailOpen)
 hs.hotkey.bind({"ctrl"}, "\\", fsNote)
