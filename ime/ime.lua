@@ -1,5 +1,5 @@
 -- local function Chinese()
---     hs.keycodes.currentSourceID("com.sogou.inputmethod.sogou.pinyin")
+--     hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel")
 -- end
 
 -- local function English()
@@ -8,20 +8,20 @@
 
 -- -- app to expected ime config
 -- local app2Ime = {
---     {'/Applications/iTerm.app', 'English'},
---     {'/Applications/Xcode.app', 'English'},
---     {'/Applications/Google Chrome.app', 'Chinese'},
---     {'/System/Library/CoreServices/Finder.app', 'English'},
---     {'/Applications/DingTalk.app', 'Chinese'},
---     {'/Applications/Kindle.app', 'English'},
---     {'/Applications/NeteaseMusic.app', 'Chinese'},
---     {'/Applications/微信.app', 'Chinese'},
---     {'/Applications/System Preferences.app', 'English'},
---     {'/Applications/Dash.app', 'English'},
---     {'/Applications/MindNode.app', 'Chinese'},
---     {'/Applications/Preview.app', 'Chinese'},
---     {'/Applications/wechatwebdevtools.app', 'English'},
---     {'/Applications/Sketch.app', 'English'},
+--     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/201.7223.93/WebStorm.app', 'English'},
+--     -- {'/Applications/Xcode.app', 'English'},
+--     -- {'/Applications/Google Chrome.app', 'Chinese'},
+--     -- {'/System/Library/CoreServices/Finder.app', 'English'},
+--     -- {'/Applications/DingTalk.app', 'Chinese'},
+--     -- {'/Applications/Kindle.app', 'English'},
+--     -- {'/Applications/NeteaseMusic.app', 'Chinese'},
+--     -- {'/Applications/wechat.app', 'Chinese'},
+--     -- {'/Applications/System Preferences.app', 'English'},
+--     -- {'/Applications/Dash.app', 'English'},
+--     -- {'/Applications/MindNode.app', 'Chinese'},
+--     -- {'/Applications/Preview.app', 'Chinese'},
+--     -- {'/Applications/wechatwebdevtools.app', 'English'},
+--     -- {'/Applications/Sketch.app', 'English'},
 -- }
 
 -- function updateFocusAppInputMethod()

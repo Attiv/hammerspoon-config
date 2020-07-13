@@ -1,17 +1,23 @@
 local slackApp = hs.application.get('com.tinyspeck.slackmacgap')
 local telegramApp = hs.application.get('ru.keepcoder.Telegram')
-local fsNoteApp = hs.application.get('co.fluder.FSNotes')
-local emailApp = hs.application.get('com.apple.mail')
+local fsNoteApp = hs.application.get('com.ulyssesapp.mac')
+-- local fsNoteApp = hs.application.get('co.fluder.FSNotes')
+-- local emailApp = hs.application.get('com.apple.mail')
+
+local emailApp = hs.application.get('com.edisonmail.edisonmail')
 
 function emailOpen()
   if (not emailApp or (not emailApp:isRunning()))
     then
-      hs.application.open('com.apple.mail')
-      emailApp = hs.application.get('com.apple.mail')
+      -- hs.application.open('com.apple.mail')
+      hs.application.open('com.edisonmail.edisonmail')
+      -- emailApp = hs.application.get('com.apple.mail')
+      emailApp = hs.application.get('com.edisonmail.edisonmail')
     end
   if emailApp:isHidden()
     then
-      hs.application.launchOrFocus('/System/Applications/Mail.app')
+      -- hs.application.launchOrFocus('/System/Applications/Mail.app')
+      hs.application.launchOrFocus('/Applications/Edison Mail.app')
     else
       emailApp:hide()
     end
@@ -20,12 +26,12 @@ end
 function fsNote()
   if (not fsNoteApp or (not fsNoteApp:isRunning()))
     then
-      hs.application.open('co.fluder.FSNotes')
-      fsNoteApp = hs.application.get('co.fluder.FSNotes')
+      hs.application.open('com.ulyssesapp.mac')
+      fsNoteApp = hs.application.get('com.ulyssesapp.mac')
     end
   if fsNoteApp:isHidden()
     then
-      hs.application.launchOrFocus('/Applications/FSNotes.app')
+      hs.application.launchOrFocus('/Applications/UlyssesMac.app')
     else
       fsNoteApp:hide()
     end
