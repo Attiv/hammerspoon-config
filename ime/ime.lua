@@ -26,6 +26,7 @@ local app2Ime = {
     {'/Applications/QQ.app', 'Chinese'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/202.6948.73/WebStorm.app', 'English'},
     {'/Applications/Fork.app', 'English'},
+    {'/Applications/iTerm.app', 'English'},
 }
 
 function updateFocusAppInputMethod()
