@@ -24,7 +24,7 @@ local app2Ime = {
     {'/Applications/Visual Studio Code.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/202.6948.87/PhpStorm.app', 'English'},
     {'/Applications/QQ.app', 'Chinese'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/202.6948.73/WebStorm.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/202.7319.49/WebStorm.app', 'English'},
     {'/Applications/Fork.app', 'English'},
     {'/Applications/iTerm.app', 'English'},
 }
