@@ -1,5 +1,6 @@
 local function Chinese()
-    hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
+    -- hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
+    hs.keycodes.currentSourceID("com.apple.inputmethod.SCIM.Shuangpin")
 end
 
 local function English()
@@ -58,6 +59,7 @@ hs.hotkey.bind({'ctrl', 'option'}, ".", function()
     .."IM source id:  "
     ..hs.keycodes.currentSourceID())
     hs.pasteboard.setContents('{\'' .. hs.window.focusedWindow():application():path() .. '\', \'\'},')
+    -- hs.pasteboard.setContents(hs.keycodes.currentSourceID())
 end)
 
 -- Handle cursor focus and application's screen manage.
