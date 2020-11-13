@@ -2,23 +2,23 @@ local slackApp = hs.application.get('com.tinyspeck.slackmacgap')
 local telegramApp = hs.application.get('ru.keepcoder.Telegram')
 local fsNoteApp = hs.application.get('com.ulyssesapp.mac')
 -- local fsNoteApp = hs.application.get('co.fluder.FSNotes')
--- local emailApp = hs.application.get('com.apple.mail')
+local emailApp = hs.application.get('com.apple.mail')
 
-local emailApp = hs.application.get('com.edisonmail.edisonmail')
+-- local emailApp = hs.application.get('com.edisonmail.edisonmail')
 -- local emailApp = hs.application.get('it.bloop.airmail2')
 
 function emailOpen()
   if (not emailApp or (not emailApp:isRunning()))
     then
-      -- hs.application.open('com.apple.mail')
-      hs.application.open('com.edisonmail.edisonmail')
-      -- emailApp = hs.application.get('com.apple.mail')
-      emailApp = hs.application.get('com.edisonmail.edisonmail')
+      hs.application.open('com.apple.mail')
+      -- hs.application.open('com.edisonmail.edisonmail')
+      emailApp = hs.application.get('com.apple.mail')
+      -- emailApp = hs.application.get('com.edisonmail.edisonmail')
     end
   if emailApp:isHidden()
     then
-      -- hs.application.launchOrFocus('/System/Applications/Mail.app')
-      hs.application.launchOrFocus('/Applications/Edison Mail.app')
+      hs.application.launchOrFocus('/System/Applications/Mail.app')
+      -- hs.application.launchOrFocus('/Applications/Edison Mail.app')
       -- hs.application.launchOrFocus('/Applications/Airmail.app')
     else
       emailApp:hide()
