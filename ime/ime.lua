@@ -23,12 +23,15 @@ local app2Ime = {
     {'/Applications/wechatwebdevtools.app', 'English'},
     {'/Applications/Sketch.app', 'English'},
     {'/Applications/Visual Studio Code.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/202.7660.42/PhpStorm.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/202.7660.23/WebStorm.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/201.6858069/Android Studio.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/203.5981.175/PhpStorm.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/203.6682.155/WebStorm.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/201.6953283/Android Studio.app', 'English'},
     {'/Applications/QQ.app', 'Chinese'},
     {'/Applications/Fork.app', 'English'},
     {'/Applications/iTerm.app', 'English'},
+    {'/Applications/Unity/Hub/Editor/2019.4.14f1c1/Unity.app', 'English'},
+    {'/Applications/Visual Studio.app', 'English'},
+    {'/Applications/Sublime Text.app', 'English'},
 }
 
 function updateFocusAppInputMethod()
