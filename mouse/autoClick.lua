@@ -4,7 +4,7 @@ function autoClick()
 end
 
 function start() 
-  timer = hs.timer.doEvery(0.1, autoClick)
+  timer = hs.timer.doEvery(0.001, autoClick)
 end
 
 function stop() 

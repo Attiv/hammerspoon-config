@@ -1,10 +1,14 @@
 local function Chinese()
-    -- hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
-    hs.keycodes.currentSourceID("com.apple.inputmethod.SCIM.Shuangpin")
+    hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
+    -- hs.keycodes.currentSourceID("com.apple.inputmethod.SCIM.Shuangpin")
 end
 
 local function English()
     hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
+end
+
+local function Hlly()
+    hs.keycodes.currentSourceID("github.dongyuwei.inputmethod.hallelujahInputMethod")
 end
 
 -- app to expected ime config
@@ -20,12 +24,18 @@ local app2Ime = {
     {'/Applications/Dash.app', 'English'},
     -- {'/Applications/MindNode.app', 'Chinese'},
     -- {'/Applications/Preview.app', 'Chinese'},
+    {'/Applications/Fork.app', 'English'},
     {'/Applications/wechatwebdevtools.app', 'English'},
     {'/Applications/Sketch.app', 'English'},
     {'/Applications/Visual Studio Code.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/203.5981.175/PhpStorm.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/203.6682.155/WebStorm.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/201.6953283/Android Studio.app', 'English'},
+    {'/Applications/TablePlus.app', 'English'},
+    {'/Applications/GitUp.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/212.5080.60/AppCode.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/203.7717.64/PhpStorm.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/211.6693.108/WebStorm.app', 'English'},
+    {'/Applications/Xcode12.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/203.7678000/Android Studio.app', 'English'},
+    {'/Applications/eDEX-UI.app', 'English'},
     {'/Applications/QQ.app', 'Chinese'},
     {'/Applications/Fork.app', 'English'},
     {'/Applications/iTerm.app', 'English'},
@@ -41,10 +51,13 @@ function updateFocusAppInputMethod()
         local expectedIme = app[2]
 
         if focusAppPath == appPath then
+            hs.alert.closeAll()
             if expectedIme == 'English' then
                 English()
+                -- hs.alert.show('English', {}, 0.5)
             else
                 Chinese()
+                -- hs.alert.show('中文', {}, 0.5)
             end
             break
         end
@@ -63,6 +76,18 @@ hs.hotkey.bind({'ctrl', 'option'}, ".", function()
     ..hs.keycodes.currentSourceID())
     hs.pasteboard.setContents('{\'' .. hs.window.focusedWindow():application():path() .. '\', \'\'},')
     -- hs.pasteboard.setContents(hs.keycodes.currentSourceID())
+end)
+
+hs.hotkey.bind({'cmd', 'shift'}, "0", function()
+    Hlly()
+end)
+
+hs.hotkey.bind({'cmd', 'shift'}, "9", function()
+    English()
+end)
+
+hs.hotkey.bind({'cmd', 'shift'}, "8", function()
+    Chinese()
 end)
 
 -- Handle cursor focus and application's screen manage.
