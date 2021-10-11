@@ -30,7 +30,7 @@ local app2Ime = {
     {'/Applications/Visual Studio Code.app', 'English'},
     {'/Applications/TablePlus.app', 'English'},
     {'/Applications/GitUp.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/212.5080.60/AppCode.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/212.5284.45/AppCode.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/203.7717.64/PhpStorm.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/211.6693.108/WebStorm.app', 'English'},
     {'/Applications/Xcode12.app', 'English'},
@@ -64,6 +64,13 @@ function updateFocusAppInputMethod()
     end
 end
 
+function killHLLL() 
+    local hlll = hs.application.get('hallelujah')
+    if hlll ~= nil then
+        hs.application.get('hallelujah'):kill9()
+    end
+end
+
 -- helper hotkey to figure out the app path and name of current focused window
 hs.hotkey.bind({'ctrl', 'option'}, ".", function()
     hs.alert.show("App path:        "
@@ -88,6 +95,10 @@ end)
 
 hs.hotkey.bind({'cmd', 'shift'}, "8", function()
     Chinese()
+end)
+
+hs.hotkey.bind({'cmd', 'shift'}, "7", function()
+    killHLLL()
 end)
 
 -- Handle cursor focus and application's screen manage.
