@@ -1,12 +1,18 @@
+-- 中文输入法
 local function Chinese()
+    -- rime输入法
     hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
+    -- 系统默认中文双拼输入法
     -- hs.keycodes.currentSourceID("com.apple.inputmethod.SCIM.Shuangpin")
 end
 
+-- 英文输入法
 local function English()
+    -- 系统默认英文输入法
     hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
 end
 
+-- 哈利路亚英文输入法
 local function Hlly()
     hs.keycodes.currentSourceID("github.dongyuwei.inputmethod.hallelujahInputMethod")
 end
@@ -30,8 +36,9 @@ local app2Ime = {
     {'/Applications/Visual Studio Code.app', 'English'},
     {'/Applications/TablePlus.app', 'English'},
     {'/Applications/GitUp.app', 'English'},
+    -- IDE 是使用 JetBrains Toolbox 安装的，app 路径不在 Application/ 下，有些自动切换输入法的工具会失效，所以使用全路径
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/212.5284.45/AppCode.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/203.7717.64/PhpStorm.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/212.5457.49/PhpStorm.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/211.6693.108/WebStorm.app', 'English'},
     {'/Applications/Xcode12.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/203.7678000/Android Studio.app', 'English'},
@@ -44,6 +51,7 @@ local app2Ime = {
     {'/Applications/Sublime Text.app', 'English'},
 }
 
+-- 切换输入法
 function updateFocusAppInputMethod()
     local focusAppPath = hs.window.frontmostWindow():application():path()
     for index, app in pairs(app2Ime) do
@@ -64,6 +72,8 @@ function updateFocusAppInputMethod()
     end
 end
 
+-- 杀掉哈利路亚输入法进程，因为使用哈利路亚输入法时切换桌面的时候会有一个黑色弹窗显示1秒才消失，官方回复是系统bug，杀掉进程就不会显示了
+-- 此处有bug，杀掉进程有延时，偶尔杀掉还显示黑色弹窗
 function killHLLL() 
     local hlll = hs.application.get('hallelujah')
     if hlll ~= nil then
@@ -72,6 +82,7 @@ function killHLLL()
 end
 
 -- helper hotkey to figure out the app path and name of current focused window
+-- 绑定快捷键，获取当前app的路径和输入Source ID，并自动添加到粘贴板
 hs.hotkey.bind({'ctrl', 'option'}, ".", function()
     hs.alert.show("App path:        "
     ..hs.window.focusedWindow():application():path()
@@ -85,18 +96,22 @@ hs.hotkey.bind({'ctrl', 'option'}, ".", function()
     -- hs.pasteboard.setContents(hs.keycodes.currentSourceID())
 end)
 
+-- 绑定快捷键，切换当前输入法为哈利路亚输入法(这里是想要手动切换输入法的时候用的)
 hs.hotkey.bind({'cmd', 'shift'}, "0", function()
     Hlly()
 end)
 
+-- 绑定快捷键，切换当前输入法为英文输入法(这里是想要手动切换输入法的时候用的)
 hs.hotkey.bind({'cmd', 'shift'}, "9", function()
     English()
 end)
 
+-- 绑定快捷键，切换当前输入法为中文输入法(这里是想要手动切换输入法的时候用的)
 hs.hotkey.bind({'cmd', 'shift'}, "8", function()
     Chinese()
 end)
 
+-- 绑定快捷键，杀掉哈利路亚输入法进程
 hs.hotkey.bind({'cmd', 'shift'}, "7", function()
     killHLLL()
 end)
