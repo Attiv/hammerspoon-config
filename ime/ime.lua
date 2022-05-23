@@ -40,16 +40,17 @@ local app2Ime = {
     {'/Applications/GitUp.app', 'English'},
     {'/Applications/Xcode12.app', 'English'},
     -- IDE 是使用 JetBrains Toolbox 安装的，app 路径不在 Application/ 下，有些自动切换输入法的工具会失效，所以使用全路径
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/213.6777.48/AppCode.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/213.6777.58/PhpStorm.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/213.6777.57/WebStorm.app', 'English'},
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/213.5744.223.2113.8103819/Android Studio Preview.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/221.5080.252/AppCode.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/221.5080.224/PhpStorm.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/221.5591.52/WebStorm.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/213.7172.25.2211.8563311/Android Studio Preview.app', 'English'},
     {'/Applications/Telegram.app', 'Chinese'},
     {'/Applications/Xcode12.app', 'English'},
     {'/Applications/eDEX-UI.app', 'English'},
     {'/Applications/QQ.app', 'Chinese'},
     {'/Applications/Fork.app', 'English'},
     {'/Applications/iTerm.app', 'English'},
+    {'/Applications/Warp.app', 'English'},
     {'/var/folders/43/zmk0vm9d6z119nxn2cfl8hwm0000gn/T/AppTranslocation/D111B232-26EF-4E16-9D71-93F18A03C6BC/d/iTerm.app', 'English'},
     {'/Users/wanglikun/Applications/iTerm.app', 'English'},
     {'/Applications/Unity/Hub/Editor/2019.4.14f1c1/Unity.app', 'English'},
@@ -95,6 +96,9 @@ hs.hotkey.bind({'ctrl', 'option'}, ".", function()
     .."\n"
     .."App name:      "
     ..hs.window.focusedWindow():application():name()
+    .."\n"
+    .."Bundle ID:     "
+    ..hs.window.focusedWindow():application():bundleID()
     .."\n"
     .."IM source id:  "
     ..hs.keycodes.currentSourceID())

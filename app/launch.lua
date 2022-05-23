@@ -3,6 +3,7 @@ local telegramApp = hs.application.get('ru.keepcoder.Telegram')
 local fsNoteApp = hs.application.get('com.ulyssesapp.mac')
 -- local fsNoteApp = hs.application.get('co.fluder.FSNotes')
 local emailApp = hs.application.get('com.apple.mail')
+local devToolApp = hs.application.get('com.vitta.DevToys')
 
 -- local emailApp = hs.application.get('com.edisonmail.edisonmail')
 -- local emailApp = hs.application.get('it.bloop.airmail2')
@@ -67,8 +68,26 @@ function telegram()
     end
 end
 
+function devTool()
+  if (not devToolApp or (not devToolApp:isRunning()))
+    then
+      hs.application.open('com.vitta.DevToys')
+      devToolApp = hs.application.get('com.vitta.DevToys')
+    end
+  if devToolApp:isHidden()
+    then
+      hs.application.launchOrFocus('/Applications/DevToys.app')
+    else
+      devToolApp:hide()
+    end
+end
+
+
 
 hs.hotkey.bind({"cmd"}, "`", telegram)
 hs.hotkey.bind({"alt"}, "`", slack)
 hs.hotkey.bind({"ctrl"}, "`", emailOpen)
-hs.hotkey.bind({"ctrl"}, "\\", fsNote)
+hs.hotkey.bind({"ctrl"}, "\\", devTool)
+
+
+
