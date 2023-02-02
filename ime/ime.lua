@@ -1,7 +1,8 @@
 -- 中文输入法
 local function Chinese()
     -- rime输入法
-    hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
+    hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Hant")
+
     -- 系统默认中文双拼输入法
     -- hs.keycodes.currentSourceID("com.apple.inputmethod.SCIM.Shuangpin")
     -- 系统默认中文拼音
@@ -41,7 +42,7 @@ local app2Ime = {
     {'/Applications/GitUp.app', 'English'},
     {'/Applications/Xcode12.app', 'English'},
     -- IDE 是使用 JetBrains Toolbox 安装的，app 路径不在 Application/ 下，有些自动切换输入法的工具会失效，所以使用全路径
-    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/221.5921.25/AppCode.app', 'English'},
+    {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/AppCode/ch-0/223.8617.49/AppCode.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/222.3345.108/WebStorm.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/223.8214.64/PhpStorm.app', 'English'},
     {'/Users/wanglikun/Library/Application Support/JetBrains/Toolbox/apps/Fleet/ch-0/1.9.231/Fleet.app', 'English'},
